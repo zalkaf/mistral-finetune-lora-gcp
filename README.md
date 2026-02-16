@@ -6,18 +6,18 @@ Finetuned with LoRA Adapters Project on GCP
 
 Fine-tuning Mistral-7B language model using LoRA (Low-Rank Adaptation) on a GPU to create a custom AI model with minimal computational cost.
 
-## 📋 Overview
+## Overview
 
 This project demonstrates how to fine-tune the Mistral-7B open-source language model using LoRA, a parameter-efficient fine-tuning technique. Instead of updating all 7 billion parameters, LoRA adds small "adapter" layers that contain only ~4 million trainable parameters, making fine-tuning affordable on a single GPU.
 
-## 🎯 Features
+## Features
 
 - **Efficient Training**: Uses 4-bit quantization and LoRA for memory-efficient training
 - **Single GPU**: Runs on a single GPU (16GB+ VRAM)
 - **Cost-Effective**: Train for ~$1-5 on cloud GPUs
 - **Production Ready**: Not ready for PROD! This is used only for testing purposed. The script includes comparison results
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 - **Base Model**: Mistral-7B-v0.1
 - **Framework**: Hugging Face Transformers
@@ -36,7 +36,7 @@ This project demonstrates how to fine-tune the Mistral-7B open-source language m
     --maintenance-policy=TERMINATE \
     --provisioning-model=SPOT
 
-## 📦 Installation
+## Installation
 
 ### Prerequisites
 
@@ -124,7 +124,7 @@ python compare_models.py
 
 This script generates responses from both the base model and fine-tuned model side-by-side for comparison.
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 mistral-lora-finetuning/
@@ -138,7 +138,7 @@ mistral-lora-finetuning/
 └── mistral-7b-lora-final/   # Final fine-tuned model (created after training)
 ```
 
-## 🔧 Configuration
+## Configuration
 
 ### Training Parameters
 
@@ -161,7 +161,7 @@ Here I used rank 16 and alpha 32 to optimize the cost.
 r=16, lora_alpha=32, target_modules=["q_proj", "v_proj"]
 ```
 
-## 💰 Cost Estimation
+## Cost Estimation
 
 I used L4 GPU in us-central-1 runing for 2-3 hours which costed me about 5 bucks
 
